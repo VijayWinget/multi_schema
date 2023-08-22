@@ -18,54 +18,46 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import liquibase.integration.spring.SpringLiquibase;
 
-//import liquibase.integration.spring.SpringLiquibase;
-
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(
-        entityManagerFactoryRef = "drEntityManagerFactory",
-        transactionManagerRef = "drTransactionManager",
-        basePackages = { "com.example.demo.dr.repository" })
-public class DRDataSourceConfig  {
-	
-    @Bean
-    @ConfigurationProperties("spring.datasource.dr-datasource")
-    public DataSourceProperties drDataSourceProperties() {
-        return new DataSourceProperties();
-    }
+@EnableJpaRepositories(entityManagerFactoryRef = "drEntityManagerFactory", transactionManagerRef = "drTransactionManager", basePackages = {
+		"com.example.demo.dr.repository" })
+public class DRDataSourceConfig {
 
-    @Bean(name = "drDataSource")
-    public DataSource drDataSource() {
-        return drDataSourceProperties().initializeDataSourceBuilder().build();
-    }
-    
-    @Bean(name = "drJdbcTemplate")
-   	public JdbcTemplate drJdbcTemplate() {
-   		return new JdbcTemplate(drDataSource());
-   	}
+	@Bean
+	@ConfigurationProperties("spring.datasource.dr-datasource")
+	public DataSourceProperties drDataSourceProperties() {
+		return new DataSourceProperties();
+	}
 
-    @Bean(name = "drEntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean drEntityManagerFactory(
-            EntityManagerFactoryBuilder builder) {
-        return builder
-                .dataSource(drDataSource())
-                .packages("com.example.demo.dr.entity")
-                .persistenceUnit("dr")
-                .build();
-    }
+	@Bean(name = "drDataSource")
+	public DataSource drDataSource() {
+		return drDataSourceProperties().initializeDataSourceBuilder().build();
+	}
 
-    @Bean(name = "drTransactionManager")
-    public JpaTransactionManager drTransactionManager(@Qualifier("drEntityManagerFactory")EntityManagerFactory entityManagerFactory) {
-        return new JpaTransactionManager(entityManagerFactory);
-    }
-    
-  @Bean
-  public SpringLiquibase liquibase(@Qualifier("drDataSource") DataSource dataSource,
-                                   @Value("${spring.datasource.dr-datasource.liquibase-change-log}") String changeLog) {
-      SpringLiquibase liquibase = new SpringLiquibase();
-      liquibase.setDataSource(dataSource);
-      liquibase.setChangeLog(changeLog);
-      return liquibase;
-  }
+	@Bean(name = "drJdbcTemplate")
+	public JdbcTemplate drJdbcTemplate() {
+		return new JdbcTemplate(drDataSource());
+	}
+
+	@Bean(name = "drEntityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean drEntityManagerFactory(EntityManagerFactoryBuilder builder) {
+		return builder.dataSource(drDataSource()).packages("com.example.demo.dr.entity").persistenceUnit("dr").build();
+	}
+
+	@Bean(name = "drTransactionManager")
+	public JpaTransactionManager drTransactionManager(
+			@Qualifier("drEntityManagerFactory") EntityManagerFactory entityManagerFactory) {
+		return new JpaTransactionManager(entityManagerFactory);
+	}
+
+	@Bean(name = "drDataSourceLiquibase")
+	public SpringLiquibase drDataSourceLiquibase(@Qualifier("drDataSource") DataSource dataSource,
+			@Value("${spring.datasource.dr-datasource.liquibase-change-log}") String changeLog) {
+		SpringLiquibase liquibase = new SpringLiquibase();
+		liquibase.setDataSource(dataSource);
+		liquibase.setChangeLog(changeLog);
+		return liquibase;
+	}
 
 }

@@ -15,8 +15,14 @@ ig:
         maximum-pool-size: 15
       policy-prefix:
         dr-policy: PCN
+
+logging:
+  level:
+    liquibase: DEBUG
         
 spring:
+  liquibase:
+    enabled: false 
   main:
     allow-bean-definition-overriding: true
   jpa:
