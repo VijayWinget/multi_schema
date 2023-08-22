@@ -1,0 +1,42 @@
+ig: 
+  jesoft:
+    database:
+      hostUrl: jdbc:mysql://localhost:3306/
+      config: "?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull"
+      username: admin
+      password: India@2020$
+      driverClass: com.mysql.cj.jdbc.Driver
+    claim-service:
+      server-path: /var/cache/tomcat6/insurance-test/ 
+      database:
+        schema-1: auto_admin  
+        schema-2: cnart_diverse_risk
+        minimum-pool-size: 5
+        maximum-pool-size: 15
+      policy-prefix:
+        dr-policy: PCN
+        
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    open-in-view: false  
+  datasource: 
+    auto-datasource:
+      url: ${ig.jesoft.database.hostUrl}${ig.jesoft.claim-service.database.schema-1}${ig.jesoft.database.config}
+      username: ${ig.jesoft.database.username}
+      password: ${ig.jesoft.database.password}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      liquibase-change-log: classpath:/db/changelog/db.changelog-auto.yaml
+      hikari:
+        minimumIdle: ${ig.jesoft.claim-service.minimum-pool-size}
+        maximumPoolSize: ${ig.jesoft.claim-service.maximum-pool-size}
+    dr-datasource:
+      url: ${ig.jesoft.database.hostUrl}${ig.jesoft.claim-service.database.schema-2}${ig.jesoft.database.config}
+      username: ${ig.jesoft.database.username}
+      password: ${ig.jesoft.database.password}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      liquibase-change-log: classpath:/db/changelog/db.changelog-dr.yaml
+      hikari:
+        minimumIdle: ${ig.jesoft.claim-service.minimum-pool-size}
+        maximumPoolSize: ${ig.jesoft.claim-service.maximum-pool-size}

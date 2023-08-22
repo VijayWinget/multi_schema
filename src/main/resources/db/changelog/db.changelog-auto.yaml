@@ -1,0 +1,10 @@
+databaseChangeLog:
+  -  changeSet:
+        id:  initial
+        author:  DEV
+        changes:
+        -  sqlFile:
+              endDelimiter:  ;
+              splitStatements:  true
+              path:  db/changelog/auto_admin.sql
+              stripComments:  true

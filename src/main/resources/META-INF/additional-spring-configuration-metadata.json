@@ -1,0 +1,87 @@
+{"properties": [
+  {
+    "name": "spring.datasource.auto-datasource.liquibase-change-log",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.auto-datasource.liquibase-change-log'"
+  },
+  {
+    "name": "spring.datasource.auto-datasource.hikari.minimum-idle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.auto-datasource.hikari.minimum-idle'"
+  },
+  {
+    "name": "spring.datasource.auto-datasource.hikari.maximumPoolSize",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.auto-datasource.hikari.maximumPoolSize'"
+  },
+  {
+    "name": "spring.datasource.dr-datasource.liquibase-change-log",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.dr-datasource.liquibase-change-log'"
+  },
+  {
+    "name": "spring.datasource.dr-datasource.hikari.minimum-idle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.dr-datasource.hikari.minimum-idle'"
+  },
+  {
+    "name": "spring.datasource.dr-datasource.hikari.maximumPoolSize",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.dr-datasource.hikari.maximumPoolSize'"
+  },
+  {
+    "name": "ig.jesoft.database.host-url",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.database.host-url'"
+  },
+  {
+    "name": "ig.jesoft.database.config",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.database.config'"
+  },
+  {
+    "name": "ig.jesoft.database.username",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.database.username'"
+  },
+  {
+    "name": "ig.jesoft.database.driverClass",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.database.driverClass'"
+  },
+  {
+    "name": "ig.jesoft.database.password",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.database.password'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.server-path",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.server-path'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.database.schema-1",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.database.schema-1'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.database.schema-2",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.database.schema-2'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.database.minimum-pool-size",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.database.minimum-pool-size'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.database.maximum-pool-size",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.database.maximum-pool-size'"
+  },
+  {
+    "name": "ig.jesoft.claim-service.policy-prefix.dr-policy",
+    "type": "java.lang.String",
+    "description": "A description for 'ig.jesoft.claim-service.policy-prefix.dr-policy'"
+  }
+]}

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  -  changeSet:
+        id:  initial
+        author:  DEV
+        changes:
+        -  sqlFile:
+              endDelimiter:  ;
+              splitStatements:  true
+              path:  db/changelog/cnart_diverse_risk.sql
+              stripComments:  true
