@@ -4,6 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -14,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+
+import liquibase.integration.spring.SpringLiquibase;
 
 
 @Configuration
@@ -54,5 +57,14 @@ public class AutoDataSourceConfig {
     public JpaTransactionManager autoTransactionManager(@Qualifier("autoEntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
+//  @Primary	
+//  @Bean
+//  public SpringLiquibase liquibase(@Qualifier("autoDataSource") DataSource dataSource,
+//                                   @Value("${spring.datasource.auto-datasource.liquibase-change-log}") String changeLog) {
+//      SpringLiquibase liquibase = new SpringLiquibase();
+//      liquibase.setDataSource(dataSource);
+//      liquibase.setChangeLog(changeLog);
+//      return liquibase;
+//  }
     
 }

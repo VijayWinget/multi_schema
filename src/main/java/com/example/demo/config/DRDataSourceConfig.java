@@ -16,6 +16,8 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import liquibase.integration.spring.SpringLiquibase;
+
 //import liquibase.integration.spring.SpringLiquibase;
 
 @Configuration
@@ -56,5 +58,14 @@ public class DRDataSourceConfig  {
     public JpaTransactionManager drTransactionManager(@Qualifier("drEntityManagerFactory")EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
+    
+  @Bean
+  public SpringLiquibase liquibase(@Qualifier("drDataSource") DataSource dataSource,
+                                   @Value("${spring.datasource.dr-datasource.liquibase-change-log}") String changeLog) {
+      SpringLiquibase liquibase = new SpringLiquibase();
+      liquibase.setDataSource(dataSource);
+      liquibase.setChangeLog(changeLog);
+      return liquibase;
+  }
 
 }

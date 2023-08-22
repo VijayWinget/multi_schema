@@ -1,6 +1,6 @@
 databaseChangeLog:
   -  changeSet:
-        id:  initial
+        id:  auto
         author:  DEV
         changes:
         -  sqlFile:
