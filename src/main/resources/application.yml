@@ -3,14 +3,15 @@ ig:
     database:
       hostUrl: jdbc:mysql://localhost:3306/
       config: "?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull"
-      username: admin
-      password: India@2020$
+      username: root
+      password: 
       driverClass: com.mysql.cj.jdbc.Driver
     claim-service:
       server-path: /var/cache/tomcat6/insurance-test/ 
       database:
         schema-1: auto_admin  
         schema-2: cnart_diverse_risk
+        schema-3: activiti
         minimum-pool-size: 5
         maximum-pool-size: 15
       policy-prefix:
@@ -33,7 +34,7 @@ spring:
       username: ${ig.jesoft.database.username}
       password: ${ig.jesoft.database.password}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      liquibase-change-log: classpath:/db/changelog/db.changelog-auto.yaml
+#      liquibase-change-log: classpath:/db/changelog/db.changelog-auto.yaml
       hikari:
         minimumIdle: ${ig.jesoft.claim-service.minimum-pool-size}
         maximumPoolSize: ${ig.jesoft.claim-service.maximum-pool-size}
@@ -42,7 +43,16 @@ spring:
       username: ${ig.jesoft.database.username}
       password: ${ig.jesoft.database.password}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      liquibase-change-log: classpath:/db/changelog/db.changelog-dr.yaml
+#      liquibase-change-log: classpath:/db/changelog/db.changelog-dr.yaml
+      hikari:
+        minimumIdle: ${ig.jesoft.claim-service.minimum-pool-size}
+        maximumPoolSize: ${ig.jesoft.claim-service.maximum-pool-size}
+    ac-datasource:
+      url: ${ig.jesoft.database.hostUrl}${ig.jesoft.claim-service.database.schema-3}${ig.jesoft.database.config}
+      username: ${ig.jesoft.database.username}
+      password: ${ig.jesoft.database.password}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#      liquibase-change-log: classpath:/db/changelog/db.changelog-dr.yaml
       hikari:
         minimumIdle: ${ig.jesoft.claim-service.minimum-pool-size}
         maximumPoolSize: ${ig.jesoft.claim-service.maximum-pool-size}

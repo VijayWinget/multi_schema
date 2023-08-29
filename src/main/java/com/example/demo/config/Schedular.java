@@ -23,7 +23,7 @@ public class Schedular {
 	@Autowired
 	private DrQuoteApplicantRepository drQuoteApplicantRepository;
 	
-	@Scheduled(fixedRate = 300000) // Run every 5 seconds
+//	@Scheduled(fixedRate = 300000) // Run every 5 seconds
     public void performTask() {
 		
 		log.info("******************************");

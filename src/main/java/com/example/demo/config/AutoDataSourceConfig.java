@@ -54,14 +54,14 @@ public class AutoDataSourceConfig {
 		return new JpaTransactionManager(entityManagerFactory);
 	}
 
-	@Primary
-	@Bean(name = "autoDataSourceLiquibase")
-	public SpringLiquibase autoDataSourceLiquibase(@Qualifier("autoDataSource") DataSource dataSource,
-			@Value("${spring.datasource.auto-datasource.liquibase-change-log}") String changeLog) {
-		SpringLiquibase liquibase = new SpringLiquibase();
-		liquibase.setDataSource(dataSource);
-		liquibase.setChangeLog(changeLog);
-		return liquibase;
-	}
+//	@Primary
+//	@Bean(name = "autoDataSourceLiquibase")
+//	public SpringLiquibase autoDataSourceLiquibase(@Qualifier("autoDataSource") DataSource dataSource,
+//			@Value("${spring.datasource.auto-datasource.liquibase-change-log}") String changeLog) {
+//		SpringLiquibase liquibase = new SpringLiquibase();
+//		liquibase.setDataSource(dataSource);
+//		liquibase.setChangeLog(changeLog);
+//		return liquibase;
+//	}
 
 }

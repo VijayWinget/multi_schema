@@ -51,13 +51,13 @@ public class DRDataSourceConfig {
 		return new JpaTransactionManager(entityManagerFactory);
 	}
 
-	@Bean(name = "drDataSourceLiquibase")
-	public SpringLiquibase drDataSourceLiquibase(@Qualifier("drDataSource") DataSource dataSource,
-			@Value("${spring.datasource.dr-datasource.liquibase-change-log}") String changeLog) {
-		SpringLiquibase liquibase = new SpringLiquibase();
-		liquibase.setDataSource(dataSource);
-		liquibase.setChangeLog(changeLog);
-		return liquibase;
-	}
+//	@Bean(name = "drDataSourceLiquibase")
+//	public SpringLiquibase drDataSourceLiquibase(@Qualifier("drDataSource") DataSource dataSource,
+//			@Value("${spring.datasource.dr-datasource.liquibase-change-log}") String changeLog) {
+//		SpringLiquibase liquibase = new SpringLiquibase();
+//		liquibase.setDataSource(dataSource);
+//		liquibase.setChangeLog(changeLog);
+//		return liquibase;
+//	}
 
 }

@@ -68,6 +68,17 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.activiti/activiti-engine -->
+		<dependency>
+    		<groupId>org.activiti</groupId>
+    		<artifactId>activiti-engine</artifactId>
+    		<version>7.1.0.M6</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.activiti</groupId>
+    		<artifactId>activiti-spring</artifactId>
+    		<version>7.1.0.M6</version>
+		</dependency>
 	<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
