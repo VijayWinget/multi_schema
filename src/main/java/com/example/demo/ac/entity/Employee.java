@@ -15,14 +15,21 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Employee {
-	
-	  @Id
-	  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	  @Column(nullable = false)
-	  private Integer id;
-	  
-	  private String name;
-	  
-	  private String designation;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	private Integer id;
+
+	private String name;
+
+	private String designation;
+
+	public Employee(Integer id, String name, String designation) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.designation = designation;
+	}
 
 }

@@ -6,4 +6,6 @@ import com.example.demo.ac.entity.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
+	Employee findByName(String assignee);
+
 }
