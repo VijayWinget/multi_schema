@@ -17,10 +17,12 @@ ig:
       policy-prefix:
         dr-policy: PCN
 
-logging:
-  level:
-    liquibase: DEBUG
-        
+#logging:
+#  level:
+#    liquibase: DEBUG
+
+server:
+  port: 9090        
 spring:
   liquibase:
     enabled: false 

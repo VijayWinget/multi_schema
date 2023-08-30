@@ -7,13 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "employee")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
 
 	@Id
@@ -25,11 +29,6 @@ public class Employee {
 
 	private String designation;
 
-	public Employee(Integer id, String name, String designation) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.designation = designation;
-	}
+
 
 }

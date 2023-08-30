@@ -10,4 +10,14 @@ public class MultiSchemaApplication {
 		SpringApplication.run(MultiSchemaApplication.class, args);
 	}
 
+//	@Bean
+//	public CommandLineRunner init(final EmployeeService employeeService) {
+//
+//		return new CommandLineRunner() {
+//			public void run(String... strings) throws Exception {
+//				employeeService.createEmployee();
+//			}
+//		};
+//	}
+	
 }
